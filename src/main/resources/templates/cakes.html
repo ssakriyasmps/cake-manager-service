@@ -21,7 +21,7 @@
 
         <tr th:each="cake : ${cakes}">
             <td th:text="${cake.title}">title</td>
-            <td th:text="${cake.description}">description</td>
+            <td th:text="${cake.desc}">description</td>
             <td><img th:src="${cake.image}"></td>
         </tr>
     </tbody>
