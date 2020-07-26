@@ -12,6 +12,72 @@ mouth watering pictures of the cakes
 4. /swagger-ui.html : Users can see all the Rest endpoints supported & they can try the endpoints out using the 
 most user friendly user interface
 
+Usage
+=====
+
+1. How to start compile, run tests & create jar + docker image?
+
+    - Go into the root folder of the cake-manager-service
+    - Run 'mvn clean install'
+
+    This will create jar in the target folder & the docker image in the local docker registry
+
+2. How to start/stop the service using maven?
+
+    - Start 
+    
+        - Go into the root folder of the cake-manager-service
+        - Run 'mvn clean spring-boot:run'
+        
+    - Stop : Simply use ctrl+c
+    
+3. How to start/stop the service using Docker?
+
+    - Start : This will run the service in the back ground
+        
+            - docker run -itd -p9002:8080 com.waracle/cake-manager-service:1.0.0-SNAPSHOT
+        
+    - Stop
+        
+        - docker ps
+        - Copy the 'container id' of the cale-manager-service 
+        - docker stop <container id>
+ 
+4. How to see the Open API Definition?
+ 
+    - Open browser & paste below in the address bar
+            
+            http://localhost:9002/swagger-ui.html
+    
+5. How can i see the cakes in the human readable format?
+
+    - Open browser & paste below in the address bar 
+           
+           http://localhost:9002
+    
+6. How can i see the cakes in the Json format?
+   
+      - Open browser & paste below in the address bar 
+            
+            http://localhost:9002/cakes
+       
+      -  Execute below curl command
+            
+             curl --header "Content-Type: application/json"\
+              --request GET http://localhost:9002/cakes
+       
+      - You can also use Postman
+       
+6. How can i create cake?
+       
+      -  Execute below curl command (Please replace the cake data after --data)
+            
+             curl --header "Content-Type: application/json"\
+             --request POST\
+             --data '{"title":"xyz","desc":"abc", "image":"aaa"}'\
+             http://localhost:9002/cakes
+       
+      - You can also use Postman             
 
 Design
 ============
@@ -67,6 +133,9 @@ Sequence Diagrams
 4. Flow4 : The initial data load in the database
     
     ![picture](images/cake-manager-flow4.png)
+    
+
+
 
 
 
